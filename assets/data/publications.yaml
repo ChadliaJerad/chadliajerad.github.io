@@ -1,0 +1,98 @@
+note: This file contains only cite keys and version flags. Full metadata (title, authors, venue, doi, etc.) lives in publications.bib.
+  The website parser should load both files and join on cite_key.
+publications:
+- cite_key: Lin2025QuasiStatic
+  versions:
+  - short
+  - long
+- cite_key: Bouraoui2025EarlyExit
+  versions:
+  - short
+  - long
+- cite_key: Schoeberl2025WorstCase
+  versions:
+  - short
+  - long
+- cite_key: Jerad2025Dynamism
+  versions:
+  - short
+  - long
+- cite_key: Lin2024PretVM
+  versions:
+  - long
+- cite_key: Lin2023Verifiable
+  versions:
+  - short
+  - long
+- cite_key: Jellum2023InterPRET
+  versions:
+  - long
+- cite_key: Bouraoui2022MAPN
+  versions:
+  - long
+- cite_key: AbouMessaad2021AI
+  versions:
+  - long
+- cite_key: Bouraoui2021mAPN
+  versions:
+  - long
+- cite_key: Lohstroh2019IIoT
+  versions:
+  - short
+  - long
+- cite_key: Bouraoui2019Dataflow
+  versions:
+  - long
+- cite_key: Jerad2018Deterministic
+  versions:
+  - short
+  - long
+- cite_key: Brooks2018Component
+  versions:
+  - short
+  - long
+- cite_key: Jerad2017JavaScript
+  versions:
+  - long
+- cite_key: Bouraoui2017Hardware
+  versions:
+  - long
+- cite_key: Masmoudi2016Stereovision
+  versions:
+  - long
+- cite_key: Louati2014Time
+  versions:
+  - long
+- cite_key: Louati2014Temporal
+  versions:
+  - long
+- cite_key: Louati2013Formalization
+  versions:
+  - long
+- cite_key: Louati2013CPN
+  versions:
+  - long
+- cite_key: Louati2012ICSSEA
+  versions:
+  - long
+- cite_key: Jerad2008Maude
+  versions:
+  - long
+- cite_key: Jerad2007Design
+  versions:
+  - long
+- cite_key: Jerad2007Hierarchical
+  versions:
+  - long
+- cite_key: Jerad2006Verification
+  versions:
+  - long
+- cite_key: Jerad2006LTL
+  versions:
+  - long
+- cite_key: Jerad2005Rewriting
+  versions:
+  - long
+- cite_key: GrissaTouzi2005Negation
+  versions:
+  - long

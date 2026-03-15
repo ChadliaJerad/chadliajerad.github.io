@@ -1,0 +1,127 @@
+initiatives:
+- versions:
+  - short
+  - long
+  period: Feb 2025
+  title: 'Dagstuhl Seminar 25091: Tradeoffs in Reactive Systems Design'
+  role: Co-organizer
+  venue: Schloss Dagstuhl, Wadern, Germany
+  co_organizers:
+  - Jerónimo Castrillón-Mazo (TU Dresden, DE)
+  - Edward A. Lee (UC Berkeley, US)
+  - Claire Pagetti (ONERA – Toulouse, FR)
+- versions:
+  - short
+  - long
+  period: Mai 2025
+  title: 'Flight Workshop: A Journey through Aeronautics'
+  role: Co-organizer, facilitator, and moderator
+  venue: Technopole de la Manouba
+  details: Featuring Dr. Scott Eberhardt
+- versions:
+  - long
+  period: '2021'
+  title: The Cyber and the Physical Symbiosis (CyPhySym)
+  role: Co-chair / Org. Committee
+  funding: DAAD (Transformation Program Line 2)
+  partners:
+  - TU Dresden, Germany
+  - University of Manouba, Tunisia
+  includes:
+  - Thematic Session on 'The Cyber and the Physical Symbiosis'
+  - Online Seminar Series
+- versions:
+  - long
+  period: '2021'
+  title: IoT Innovation Challenge (IoTIC)
+  role: Co-chair / Org. Committee
+  funding: DAAD (Transformation Program Line 2)
+  partners:
+  - HS-Offenburg, Germany
+  - University of Manouba, Tunisia
+  includes:
+  - Participation in the Bosch Sensortec IoT Innovation Challenge
+- versions:
+  - long
+  period: '2020'
+  title: Engineering Cyber Physical Systems and Internet of Things (EngCPS&IoT)
+  role: Co-chair / Org. Committee
+  funding: DAAD (Transformation Program Line 2)
+  partners:
+  - TU Dresden, Germany
+  - University of Manouba, Tunisia
+  includes:
+  - Online Seminar Series on Design and Programming Cyber-Physical Systems and IoT applications
+- versions:
+  - long
+  period: '2020'
+  title: 5 Years and More Generations of Fruitful Collaboration in IoT (5G+IoT)
+  role: Co-chair / Org. Committee
+  funding: DAAD (Transformation Program Line 2)
+  partners:
+  - HS-Offenburg, Germany
+  - University of Manouba, Tunisia
+  includes:
+  - Organization of the 3rd edition of IoT Hackathon
+- versions:
+  - long
+  period: '2020'
+  title: Cooperation for Sustainable Development in Drylands
+  role: Co-chair / Org. Committee
+  funding: DAAD (Transformation Program Line 2)
+  partners:
+  - University of Hamburg, Germany
+  - University of Manouba, Tunisia
+- versions:
+  - long
+  period: '2019'
+  title: Embedded parallel programming in practice, teaching and research
+  role: Co-chair / Org. Committee
+  funding: DAAD (Transformation Program Line 2)
+  partners:
+  - TU Dresden, Germany
+  - University of Manouba, Tunisia
+  includes:
+  - Round table discussion on 'Research landscape and opportunities for technology transfer' at ENSI, Dec. 3rd, 2019
+- versions:
+  - long
+  period: '2019'
+  title: Continued Collaboration for IoT (ContIoT)
+  role: Co-chair / Org. Committee
+  funding: DAAD (Transformation Program Line 2)
+  partners:
+  - HS-Offenburg, Germany
+  - University of Manouba, Tunisia
+  includes:
+  - Organization of the 2nd edition of IoT Hackathon
+- versions:
+  - long
+  period: '2018'
+  title: 'Realizing IoT: in Business and Engineering (RealIoT)'
+  role: Co-chair / Org. Committee
+  funding: DAAD (Transformation Program Line 2)
+  partners:
+  - HS-Offenburg, Germany
+  - University of Manouba, Tunisia
+  includes:
+  - Organization of the 1st edition of IoT Hackathon
+- versions:
+  - long
+  period: '2016'
+  title: Get-together towards a sustainable collaboration in IoT
+  role: Co-chair / Org. Committee
+  funding: DAAD (Transformation Program Line 2)
+  partners:
+  - HS-Offenburg, Germany
+  - TU Dresden (ZIH and cfaed), Germany
+  - University of Manouba, Tunisia
+- versions:
+  - long
+  period: Nov 2014
+  title: Design and Applications of Multi-Processors System on Chip (Winter School)
+  role: Co-chair / Org. Committee
+  venue: Tunis, Tunisia
+  funding: DAAD (Transformation Program Line 2)
+  partners:
+  - Cfaed, TU Dresden, Germany
+  - ENIT, University of Tunis El Manar, Tunisia

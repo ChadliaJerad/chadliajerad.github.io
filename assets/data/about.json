@@ -1,0 +1,52 @@
+{
+  "personal": {
+    "name": "Chadlia JERAD",
+    "dob": "June 11, 1979",
+    "birthplace": "Tunis, Tunisia",
+    "nationality": "Tunisian"
+  },
+
+  "about": "TODO: fill in your about text here.",
+
+  "short_bio": "TODO: fill in your short bio here.",
+
+  "areas_of_interest": [
+    "TODO: fill in your areas of interest"
+  ],
+
+  "recent_news": [
+    {
+      "date": "TODO",
+      "text": "TODO: fill in recent news items"
+    }
+  ],
+
+  "education": [
+    {
+      "degree": "Doctorate in Electrical Engineering",
+      "institution": "ENIT, University of Tunis El Manar",
+      "country": "Tunisia",
+      "year": 2008,
+      "month": "May",
+      "topic": "Contribution to the description and formal verification of software architectures based on rewriting logic: Application to real-time systems",
+      "keywords": ["software architecture", "rewriting logic", "model checking", "real-time systems"],
+      "distinction": "Very honorable"
+    },
+    {
+      "degree": "Master's degree in Automatic and Signal Processing",
+      "institution": "ENIT, University of Tunis El Manar",
+      "country": "Tunisia",
+      "year": 2003,
+      "month": "July",
+      "topic": "Deductive databases analysis tool based on extended predicate Petri nets",
+      "keywords": ["logical programming", "deductive databases", "Petri nets extension"]
+    },
+    {
+      "degree": "Engineering Diploma in Electrical Engineering",
+      "institution": "ENIT, University of Tunis El Manar",
+      "country": "Tunisia",
+      "year": 2002,
+      "month": "July"
+    }
+  ]
+}
