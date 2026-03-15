@@ -1,0 +1,34 @@
+name: Build and Deploy CV
+
+on:
+  push:
+    paths:
+      - "cv/resume.json"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: "18"
+
+      - name: Install resume-cli
+        run: npm install -g resume-cli
+
+      - name: Generate Detailed CV (long)
+        run: resume export cv/cv_long.pdf --theme elegant
+
+      - name: Generate Short CV
+        run: resume export cv/cv_short.pdf --theme short
+
+      - name: Commit and push PDFs
+        run: |
+          git config --global user.name "github-actions"
+          git config --global user.email "actions@github.com"
+          git add cv/cv_*.pdf
+          git commit -m "Update CV PDFs"
+          git push
