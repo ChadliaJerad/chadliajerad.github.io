@@ -5,6 +5,35 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dr. Chadlia Jerad - Research Profile</title>
     <link rel="stylesheet" href="assets/css/style.css">
+    <style>
+        /* ── Version toggle ── */
+        #version-toggle {
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+            margin-left: auto;
+            padding-right: 0.5rem;
+        }
+        .version-btn {
+            padding: 0.3rem 0.9rem;
+            border: 1.5px solid #1e3c72;
+            background: white;
+            color: #1e3c72;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 0.82rem;
+            font-weight: 600;
+            transition: all 0.2s;
+        }
+        .version-btn:hover { background: #e8edf7; }
+        .version-btn.active {
+            background: #1e3c72;
+            color: white;
+        }
+        /* loading / error */
+        .loading { padding: 2rem; color: #888; font-style: italic; }
+        .load-error { padding: 2rem; color: #c0392b; }
+    </style>
 </head>
 <body>
     <header>
@@ -13,7 +42,7 @@
             <!-- <img src="images/me.JPG" alt="Dr. Chadlia Jerad" class="profile-img"> -->
             <div class="header-text">
                 <h1>Dr. Chadlia JERAD</h1>
-                <p>Embedded Systems & Cyber-Physical Systems Researcher</p>
+                <p>Embedded Systems &amp; Cyber-Physical Systems Researcher</p>
                 <p>ENSI, University of Manouba</p>
             </div>
         </div>
@@ -35,21 +64,26 @@
                 <li class="tab" data-tab="awards">Awards</li>
                 <li class="tab" data-tab="services">Services</li>
                 <li class="tab" data-tab="contact">Contact</li>
+                <!-- version toggle sits at the right end of the nav bar -->
+                <li id="version-toggle" style="list-style:none;"></li>
             </ul>
         </div>
     </nav>
 
     <main id="main" tabindex="-1" class="tab-content-wrapper">
-        <i class="fa fa-home"></i>
-      <noscript>
-        <iframe src="tabs/about.html" title="About" style="width:100%;border:0;"></iframe>
-      </noscript>
+        <noscript>
+            <p>JavaScript is required to view this page.</p>
+        </noscript>
     </main>
 
     <footer>
         <p>&copy; 2025 Dr. Chadlia Jerad. All rights reserved.</p>
     </footer>
 
+    <!-- js-yaml (no build step needed) -->
+    <script src="https://cdn.jsdelivr.net/npm/js-yaml@4/dist/js-yaml.min.js"></script>
+    <!-- renderers must load before script.js -->
+    <script src="js/renderers.js"></script>
     <script src="js/script.js"></script>
 </body>
 </html>
