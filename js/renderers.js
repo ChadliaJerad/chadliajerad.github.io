@@ -51,7 +51,7 @@ function renderAbout(data) {
             <ul style="margin-left:2rem;margin-top:0.5rem;">${interests}</ul>
         </div>
         <div style="flex: 1;">
-        <img src="../images/me.JPG" alt="profile-img" style="width: 100%; height: auto; border-radius: 8px;">
+        <img src="../images/ChadliaJerad.JPG" alt="profile-img" style="width: 100%; height: auto; border-radius: 8px;">
     </div>
     </div>
 

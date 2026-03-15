@@ -15,7 +15,7 @@ body {
 /* Header Styles */
 header {
     position: relative;
-    background-image: url('../../images/b2.png');
+    background-image: url('../../images/banner.png');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -25,6 +25,9 @@ header {
     min-height: 300px;
     display: flex;
     align-items: center;
+    position: sticky;
+    top: 0;
+    /* z-index: 300; */
 }
 
 .header-overlay {
@@ -83,8 +86,8 @@ nav {
     background: white;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     position: sticky;
-    top: 0;
-    z-index: 100;
+    top: 300px;
+    /* z-index: 100; */
 }
 
 .nav-container {
