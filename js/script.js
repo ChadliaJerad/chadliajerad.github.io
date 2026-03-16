@@ -3,18 +3,27 @@ let currentVersion = 'long';
 const yamlCache = {};
 let bibCache = null;   // parsed bib entries, loaded once
 
+// Tabs that respect the short/long toggle
+const VERSION_TABS = new Set(['publications', 'initiatives', 'supervision', 'distinctions', 'services', 'experience']);
+
 // ─── Version Toggle ───────────────────────────────────────────────────────────
-function buildVersionToggle() {
+function buildVersionToggle(tabName) {
+    if (!VERSION_TABS.has(tabName)) return '';
+    return `
+    <div class="tab-header">
+      <div id="version-toggle">
+        <button class="version-btn ${currentVersion==='short'?'active':''}" data-v="short">Short</button>
+        <button class="version-btn ${currentVersion==='long' ?'active':''}" data-v="long">Long</button>
+      </div>
+    </div>`;
+}
+
+function attachToggleListeners() {
     const toggle = document.getElementById('version-toggle');
     if (!toggle) return;
-    toggle.innerHTML = `
-        <button class="version-btn ${currentVersion==='short'?'active':''}" data-v="short">Short</button>
-        <button class="version-btn ${currentVersion==='long' ?'active':''}" data-v="long">Long</button>`;
     toggle.querySelectorAll('.version-btn').forEach(btn => {
         btn.addEventListener('click', () => {
             currentVersion = btn.dataset.v;
-            toggle.querySelectorAll('.version-btn').forEach(b =>
-                b.classList.toggle('active', b.dataset.v === currentVersion));
             const active = document.querySelector('.tab.active');
             if (active) loadTab(active.dataset.tab, false);
         });
@@ -58,11 +67,12 @@ async function loadTab(name, push = true) {
             html = renderer(data, currentVersion);
         }
 
-        main.innerHTML = html;
+        main.innerHTML = buildVersionToggle(name) + html;
+        attachToggleListeners();
         document.querySelectorAll('.tab').forEach(t =>
             t.classList.toggle('active', t.dataset.tab === name));
         if (push) history.pushState({ tab: name }, '', `#${name}`);
-        main.focus();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
 
     } catch (err) {
         console.error('Failed to load tab:', name, err);
@@ -76,7 +86,6 @@ async function loadTab(name, push = true) {
 
 // ─── Boot ─────────────────────────────────────────────────────────────────────
 document.addEventListener('DOMContentLoaded', () => {
-    buildVersionToggle();
 
     const tabs = document.querySelectorAll('.tab');
     tabs.forEach((tab, index) => {

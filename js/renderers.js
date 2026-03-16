@@ -145,9 +145,9 @@ function renderInitiatives(data, version) {
     return `<h2>Initiatives</h2>${blocks}`;
 }
 
-// ─── Mentoring ────────────────────────────────────────────────────────────────
+// ─── Supervision ────────────────────────────────────────────────────────────────
 
-function renderMentoring(data, version) {
+function renderSupervision(data, version) {
     function studentBlock(s) {
         if (!visible(s, version)) return '';
         let details = `<p><em>${esc(s.topic)}</em></p>`;
@@ -161,15 +161,15 @@ function renderMentoring(data, version) {
     const msc  = (data.msc  || []).map(studentBlock).join('');
 
     return `
-    <h2>Mentoring</h2>
+    <h2>Supervision</h2>
     <h3>PhD Students</h3>${phd}
     <h3>MSc Students</h3>${msc}`;
 }
 
-// ─── Awards ───────────────────────────────────────────────────────────────────
+// ─── Distinctions ─────────────────────────────────────────────────────────────
 
-function renderAwards(data, version) {
-    const blocks = (data.awards || []).map(a => {
+function renderDistinctions(data, version) {
+    const blocks = (data.distinctions || []).map(a => {
         if (!visible(a, version)) return '';
         let details = '';
         if (a.institution) details += `<p>${esc(a.institution)}</p>`;
@@ -177,7 +177,8 @@ function renderAwards(data, version) {
         return eventBlock(a.period, a.title, details);
     }).join('');
 
-    return `<h2>Awards &amp; Fellowships</h2>${blocks}`;
+    const title = (data.titles && data.titles[version]) || 'Distinctions &amp; Fellowships';
+    return `<h2>${title}</h2>${blocks}`;
 }
 
 // ─── Services ─────────────────────────────────────────────────────────────────
@@ -193,16 +194,6 @@ function renderServices(data, version) {
         return eventBlock(c.period, c.role, `<p>${esc(c.details || c.event || '')}</p>${c.venue ? `<p>${esc(c.venue)}</p>` : ''}`);
     }).join('');
 
-    const talks = (data.talks_presentations || []).map(t => {
-        if (!visible(t, version)) return '';
-        const title = t.title || (t.titles && t.titles.join(' &amp; ')) || '';
-        let details = '';
-        if (t.authors) details += `<p>${t.authors.map(esc).join(', ')}</p>`;
-        if (t.event)   details += `<p>${esc(t.event)}</p>`;
-        if (t.url)     details += `<p><a href="${esc(t.url)}" target="_blank">Link</a></p>`;
-        return eventBlock(t.period, `${esc(t.type)} — ${esc(title)}`, details);
-    }).join('');
-
     return `
     <h2>Services</h2>
     <h3>Program Committee &amp; Reviewing</h3>
@@ -210,9 +201,7 @@ function renderServices(data, version) {
         ${pcRows}
     </table>
     <h3>Chairing &amp; Opponent</h3>
-    ${chairing}
-    <h3>Talks &amp; Presentations</h3>
-    ${talks}`;
+    ${chairing}`;
 }
 
 // ─── Contact ──────────────────────────────────────────────────────────────────
@@ -250,8 +239,8 @@ window.Renderers = {
     experience:   renderExperience,
     teaching:     renderTeaching,
     initiatives:  renderInitiatives,
-    mentoring:    renderMentoring,
-    awards:       renderAwards,
+    supervision:  renderSupervision,
+    distinctions:  renderDistinctions,
     services:     renderServices,
     contact:      renderContact,
 };
@@ -265,7 +254,7 @@ function renderPublications(pubYaml, bibEntries, version) {
     });
 
     if (!list.length) {
-        return '<h2>Publications</h2><p>No entries for this version.</p>';
+        return '<h2>Publications, Talks & Presentations</h2><p>No entries for this version.</p>';
     }
 
     // Group by year using bib data
@@ -307,7 +296,21 @@ function renderPublications(pubYaml, bibEntries, version) {
         return `<h3 style="color:#1e3c72;margin-top:1.5rem;margin-bottom:0.5rem;">${year}</h3>${pubs}`;
     }).join('');
 
-    return `<h2>Publications</h2>${html}`;
+    const talks = (pubYaml.talks_presentations || []).map(t => {
+        if (!visible(t, version)) return '';
+        const title = t.title || (t.titles && t.titles.join(' &amp; ')) || '';
+        let details = '';
+        if (t.authors) details += `<p>${t.authors.map(esc).join(', ')}</p>`;
+        if (t.event)   details += `<p>${esc(t.event)}</p>`;
+        if (t.url)     details += `<p><a href="${esc(t.url)}" target="_blank">Link</a></p>`;
+        return eventBlock(t.period, `${esc(t.type)} — ${esc(title)}`, details);
+    }).join('');
+
+
+
+    return `<h2>Publications, Talks & Presentations</h2>${html}
+    <h3>Talks &amp; Presentations</h3>
+    ${talks}`;
 }
 
 // Add to exports

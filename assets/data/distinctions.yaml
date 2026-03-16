@@ -1,4 +1,8 @@
-awards:
+titles:
+  short: Distinctions
+  long: Distinctions, Fellowships & Grants
+  
+distinctions:
 - versions:
   - short
   - long

@@ -6,22 +6,24 @@
     <title>Dr. Chadlia Jerad - Research Profile</title>
     <link rel="stylesheet" href="assets/css/style.css">
     <style>
-        /* ── Version toggle ── */
+        /* ── Per-tab version toggle ── */
+        .tab-header {
+            float: right;
+            margin-top: 0.2rem;   /* fine-tune vertical alignment with h2 */
+        }
         #version-toggle {
             display: flex;
             align-items: center;
             gap: 0.25rem;
-            margin-left: auto;
-            padding-right: 0.5rem;
         }
         .version-btn {
-            padding: 0.3rem 0.9rem;
+            padding: 0.22rem 0.75rem;
             border: 1.5px solid #1e3c72;
             background: white;
             color: #1e3c72;
             border-radius: 20px;
             cursor: pointer;
-            font-size: 0.82rem;
+            font-size: 0.75rem;
             font-weight: 600;
             transition: all 0.2s;
         }
@@ -60,12 +62,10 @@
                 <li class="tab" data-tab="experience">Experience</li>
                 <li class="tab" data-tab="teaching">Teaching</li>
                 <li class="tab" data-tab="initiatives">Initiatives</li>
-                <li class="tab" data-tab="mentoring">Mentoring</li>
-                <li class="tab" data-tab="awards">Awards</li>
+                <li class="tab" data-tab="supervision">Supervision</li>
+                <li class="tab" data-tab="distinctions">Distinctions</li>
                 <li class="tab" data-tab="services">Services</li>
                 <li class="tab" data-tab="contact">Contact</li>
-                <!-- version toggle sits at the right end of the nav bar -->
-                <li id="version-toggle" style="list-style:none;"></li>
             </ul>
         </div>
     </nav>
