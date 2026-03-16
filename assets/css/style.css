@@ -296,3 +296,27 @@ footer {
         grid-template-columns: 1fr;
     }
 }
+
+.tab-icon {
+    display: flex;
+    align-items: center;
+    padding: 0 0.7rem;
+}
+
+.tab-icon a {
+    display: flex;
+    align-items: center;
+    color: #1e3c72;
+    transition: color 0.2s;
+}
+
+.tab-icon a:hover {
+    color: #2a5298;
+}
+
+.tab-separator {
+    width: 1px;
+    background: #ddd;
+    margin: 0.4rem 0.3rem;
+    align-self: stretch;
+}

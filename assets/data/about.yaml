@@ -32,6 +32,16 @@ areas_of_interest:
   - Formal Methods & Model Checking
   - Internet of Things (IoT)
 
+software:
+  - name: "[Lingua Franca](https://github.com/icyphy/lingua-franca)"
+    text: >
+      A polyglot coordination language for concurrent and distributed systems, enabling
+      deterministic execution across heterogeneous platforms.
+  - name: Accessors
+    text: >
+      A framework for building and analyzing access control systems, with a focus on
+      formal verification and security policy enforcement.
+
 recent_news:
   - date: September 2025
     text: >
