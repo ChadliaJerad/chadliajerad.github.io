@@ -5,7 +5,7 @@ positions:
   - long
   period: Sep 2009 – Present
   role: Associate Professor
-  institution: National School of Computer Science (ENSI), University of Manouba
+  institution: ENSI, University of Manouba
   country: Tunisia
   department: SRSI
 
@@ -34,6 +34,7 @@ positions:
 
 - versions:
   - long
+  - short
   period: Nov 2021 – Aug 2022
   role: Consultant in Embedded Engineering
   institution: iCompass (AI Tunisian startup, NLP)
@@ -45,8 +46,8 @@ positions:
 - versions:
   - long
   period: Sep 2014 – Aug 2020
-  role: Coordinator, Embedded Software and Systems Specialization
-  institution: National School of Computer Sciences, University of Manouba
+  role: Coordinator of the "Embedded Software and Systems (SLE)" Specialization
+  institution: ENSI, University of Manouba
   country: Tunisia
   details:
   - Established short and long-term strategies
@@ -63,21 +64,22 @@ positions:
 
 - versions:
   - long
+  - short
   period: Sep 2007 – Aug 2009
   role: Assistant Professor
-  institution: Higher Institute of Applied Science and Technology, Sousse
+  institution: ISSATS, University of Sousse
   country: Tunisia
-  details:
-  - Computer Architecture (2nd level), Digital Circuits (1st level)
+  # details:
+  # - Computer Architecture (2nd level), Digital Circuits (1st level)
 
 - versions:
   - long
   period: Sep 2003 – Aug 2007
   role: Assistant Professor (Contractor)
-  institution: National Engineering School of Tunis (ENIT)
+  institution: ENIT, University of Tunis El Manar
   country: Tunisia
-  details:
-  - Computer Architecture (3rd level), Algorithms and C/C++ Programming (3rd level)
+  # details:
+  # - Computer Architecture (3rd level), Algorithms and C/C++ Programming (3rd level)
 
 - versions:
   - long
@@ -89,30 +91,16 @@ positions:
 
 stays_abroad:
 
-# - versions:
-#   - short
-#   - long
-#   period: Oct 2022 – Jun 2023
-#   type: Visiting Scholar
-#   institution: UC Berkeley, iCyPhy Research Center
-#   country: USA
-#   project: Lingua Franca
-
 - versions:
   - long
-  period: Nov 2021
+  period: 
+  - Nov 2021
+  - Aug 2021
   type: Research stay
   institution: cfaed, TU Dresden
   country: Germany
   project: CyPhySym
-
-- versions:
-  - long
-  period: Aug 2021
-  type: Research stay
-  institution: cfaed, TU Dresden
-  country: Germany
-  project: CyPhySym
+  funder: German Academic Exchange Service (DAAD)
 
 - versions:
   - long
@@ -121,6 +109,7 @@ stays_abroad:
   institution: ivESK, HS Offenburg
   country: Germany
   project: IoTIC
+  funder: German Academic Exchange Service (DAAD)
 
 - versions:
   - long
@@ -129,14 +118,18 @@ stays_abroad:
   institution: cfaed, TU Dresden
   country: Germany
   project: EngCPS&IoT
+  funder: German Academic Exchange Service (DAAD)
 
 - versions:
   - long
-  period: Jul 2019
+  period: 
+  - Jul 2019
+  - Mai 2019
   type: Research stay
   institution: cfaed, TU Dresden
   country: Germany
-  project: Embedded parallel programming
+  project: Embedded Parallel Programming
+  funder: German Academic Exchange Service (DAAD)
 
 - versions:
   - long
@@ -145,14 +138,7 @@ stays_abroad:
   institution: ivESK, HS Offenburg
   country: Germany
   project: ContIoT
-
-- versions:
-  - long
-  period: Mai 2019
-  type: Research stay
-  institution: cfaed, TU Dresden
-  country: Germany
-  project: Embedded parallel programming
+  funder: German Academic Exchange Service (DAAD)
 
 - versions:
   - long
@@ -161,68 +147,49 @@ stays_abroad:
   institution: ivESK, HS Offenburg
   country: Germany
   project: RealIoT
-
-- versions:
-  - long
-  period: Apr 2018
-  type: Visiting Professor
-  institution: cfaed, TU Dresden
-  country: Germany
-
-# - versions:
-#   - short
-#   - long
-#   period: Sep 2016 – Aug 2017
-#   type: Fulbright Visiting Scholar
-#   institution: UC Berkeley, iCyPhy Research Center
-#   country: USA
-#   project: Accessors
-
-- versions:
-  - long
-  period: Mar 2016
-  type: Visiting Professor
-  institution: ivESK HS Offenburg and ZIH & cfaed, TU Dresden
-  country: Germany
-  project: Get-together towards a sustainable collaboration in IoT
+  funder: German Academic Exchange Service (DAAD)
 
 - versions:
   - long
   period: Jun–Jul 2013
-  type: Grant (Association MedLink)
-  institution: Conservatoire National des Arts et Métiers (CNAM)
+  type: Research stay
+  institution: CNAM, Paris
   country: France
+  funder: Association MedLink
 
 - versions:
   - long
-  period: Apr–Jun 2006
-  type: Scholarship (Bourse en alternance)
-  institution: CNAM
-  country: France
-  funder: Ministry of Higher Education, Tunisia
-
-- versions:
-  - long
-  period: May–Jun 2005
-  type: Scholarship (Bourse en alternance)
-  institution: CNAM
-  country: France
-  funder: Ministry of Higher Education, Tunisia
-  details:
-  - May–Jun 2005
+  period:
   - Apr–Jun 2006
-
-- versions:
-  - long
-  period: Oct 2004
-  type: Scholarship (Bourse en alternance)
-  institution: CNAM
+  - May–Jun 2005
+  - Oct 2004
+  type: Research stay
+  institution: CNAM, Paris
   country: France
   funder: Ministry of Higher Education, Tunisia
+
 
 - versions:
   - long
   period: Jul–Aug 2001
-  type: Internship (IAESTE)
+  type: Internship
   institution: Power Public Corporation
   country: Greece
+  funder: IAESTE
+
+
+# - versions:
+#   - long
+#   period: Apr 2018
+#   type: Visiting Professor
+#   institution: cfaed, TU Dresden
+#   country: Germany
+
+# - versions:
+#   - long
+#   period: Mar 2016
+#   type: Visiting Professor
+#   institution: ivESK HS Offenburg and ZIH & cfaed, TU Dresden
+#   country: Germany
+#   project: Get-together towards a sustainable collaboration in IoT
+#   funder: German Academic Exchange Service (DAAD)

@@ -331,7 +331,7 @@ def build_cv(version):
 
     pc_bullets, chair_entries = build_service(services, version)
 
-    dist_title = distinctions.get("titles", {}).get(version, "Distinctions, Fellowships & Grants")
+    dist_title = distinctions.get("titles", {}).get(version, "Distinctions")
 
     stays = build_stays(experience, version)
 

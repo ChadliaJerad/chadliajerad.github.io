@@ -4,7 +4,7 @@ const yamlCache = {};
 let bibCache = null;   // parsed bib entries, loaded once
 
 // Tabs that respect the short/long toggle
-const VERSION_TABS = new Set(['publications', 'initiatives', 'supervision', 'distinctions', 'services', 'experience']);
+const VERSION_TABS = new Set(['publications', 'initiatives', 'supervision', 'services', 'experience']);
 
 // ─── Version Toggle ───────────────────────────────────────────────────────────
 function buildVersionToggle(tabName) {

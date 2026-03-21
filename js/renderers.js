@@ -89,13 +89,42 @@ function renderExperience(data, version) {
 
     const positions = (data.positions || []).map(positionBlock).join('');
 
-    const stays = (data.stays_abroad || []).map(s => {
-        if (!visible(s, version)) return '';
-        let detail = '';
-        if (s.project) detail += `<p>Project: ${mdLinks(s.project)}</p>`;
-        if (s.funder)  detail += `<p>Funded by: ${mdLinks(s.funder)}</p>`;
-        return eventBlock(s.period, `${mdLinks(s.type)} — ${mdLinks(s.institution)}, ${mdLinks(s.country)}`, detail);
-    }).join('');
+    const stays = (() => {
+        const filtered = (data.stays_abroad || []).filter(s => visible(s, version));
+
+        const groups = {};
+        for (const s of filtered) {
+            const key = `${s.type}||${s.institution}||${s.country}||${s.funder || ''}`;
+            if (!groups[key]) {
+                groups[key] = { type: s.type, institution: s.institution, country: s.country, funder: s.funder, projects: {} };
+            }
+            const periods = Array.isArray(s.period) ? s.period : (s.period ? [s.period] : []);
+            const projKey = s.project || '';
+            if (!groups[key].projects[projKey]) {
+                groups[key].projects[projKey] = { project: s.project || null, periods: [] };
+            }
+            for (const p of periods) {
+                groups[key].projects[projKey].periods.push(p);
+            }
+        }
+
+        return Object.values(groups).map(g => {
+            const header = `${mdLinks(g.type)} @ ${mdLinks(g.institution)}, ${mdLinks(g.country)}`;
+
+            let detail = '<ul>';
+            for (const pg of Object.values(g.projects)) {
+                pg.periods.sort((a, b) => b.localeCompare(a));
+                const periodsStr = pg.periods.join(', ');
+                const proj = pg.project ? `  •  Project: ${mdLinks(pg.project)}` : '';
+                detail += `<li>${periodsStr}${proj}</li>`;
+            }
+            detail += '</ul>';
+
+            if (g.funder) detail += `<p>Funded by: ${mdLinks(g.funder)}</p>`;
+
+            return eventBlock(null, header, detail);
+        }).join('');
+    })();
 
     return `<h2>
         <a class="section-link" onclick="document.getElementById('pub-positions').scrollIntoView({behavior:'smooth'}); return false;" style="cursor:pointer;text-decoration:none;color:inherit;"><u>Positions</u></a> • 
@@ -191,8 +220,7 @@ function renderDistinctions(data, version) {
         return eventBlock(a.period, a.title, details);
     }).join('');
 
-    const title = (data.titles && data.titles[version]) || 'Distinctions &amp; Fellowships';
-    return `<h2>${title}</h2>${blocks}`;
+    return `${blocks}`;
 }
 
 // ─── Services ─────────────────────────────────────────────────────────────────
@@ -203,9 +231,26 @@ function renderServices(data, version) {
         `<tr><td style="padding:0.3rem 1rem 0.3rem 0;font-weight:500;">${mdLinks(p.venue)}</td>` +
         `<td style="color:#555;">${p.years.join(', ')}</td></tr>`).join('');
 
+    // Dissertation committee
+    const dissertation = (data.dissertation_committee || []).map(c => {
+        if (!visible(c, version)) return '';
+        return eventBlock(c.period, c.role,
+            `<p>${mdLinks(c.details || '')}</p>${c.venue ? `<p>${mdLinks(c.venue)}</p>` : ''}`);
+    }).join('');
+
+    // Session chairing
     const chairing = (data.chairing || []).map(c => {
         if (!visible(c, version)) return '';
-        return eventBlock(c.period, c.role, `<p>${mdLinks(c.details || c.event || '')}</p>${c.venue ? `<p>${mdLinks(c.venue)}</p>` : ''}`);
+        return eventBlock(c.period, c.role,
+            `<p>${mdLinks(c.event || c.details || '')}</p>${c.venue ? `<p>${mdLinks(c.venue)}</p>` : ''}`);
+    }).join('');
+
+    // Misc
+    const misc = (data.misc || []).map(m => {
+        if (!visible(m, version)) return '';
+        const detail = m.details ? `<p>${mdLinks(m.details)}</p>` : '';
+        const sub    = m.institution ? `<p>${mdLinks(m.institution)}</p>` : '';
+        return eventBlock(m.period, mdLinks(m.title), detail + sub);
     }).join('');
 
     return `
@@ -214,8 +259,12 @@ function renderServices(data, version) {
     <table style="margin-left:1rem;margin-top:0.5rem;border-collapse:collapse;">
         ${pcRows}
     </table>
-    <h3> Dissertation Committee</h3>
-    ${chairing}`;
+    <h3>Dissertation Committee</h3>
+    ${dissertation}
+    <h3>Session Chairing</h3>
+    ${chairing}
+    <h3>Miscellaneous</h3>
+    ${misc}`;
 }
 
 // ─── Contact ──────────────────────────────────────────────────────────────────
@@ -230,7 +279,7 @@ function renderPublications(pubYaml, bibEntries, version) {
     });
 
     if (!list.length) {
-        return '<h2>Publications • Talks • Posters • Presentations</h2><p>No entries for this version.</p>';
+        return '<h2>Publications • Talks • Tutorials • Posters • Presentations</h2><p>No entries for this version.</p>';
     }
 
     // Group by year using bib data
@@ -292,6 +341,30 @@ function renderPublications(pubYaml, bibEntries, version) {
             </div>`;
     }).join('');
 
+    const tutorials = (pubYaml.tutorials || []).map(t => {
+        if (!visible(t, version)) return '';
+        let titleHtml = '';
+        if (t.title) {
+            titleHtml = mdLinks(t.title);
+        } else if (t.titles) {
+            titleHtml = t.titles.map(title => `<div>— ${mdLinks(title)}</div>`).join('');
+        }
+        let details = '';
+        if (t.authors) details += `<div>${(t.authors.map(esc).join(', ')).replace(
+                /\bC. Jerad\b/g,
+                '<u>C. Jerad</u>'
+            )}</div>`;
+        if (t.event)   details += `${mdLinks(t.event)} —  ${mdLinks(t.period)}`;
+        if (t.url)     details += `, <a href="${mdLinks(t.url)}" target="_blank">Link</a>`;
+        
+        return `
+            <div class="publication">
+                <div class="publication-title">${titleHtml}</div>
+                <div class="publication-authors">${mdLinks(t.type)}</div>
+                <div class="publication-venue">${details}</div>
+            </div>`;
+    }).join('');
+
     const posters = (pubYaml.posters || []).map(t => {
         if (!visible(t, version)) return '';
         let titleHtml = '';
@@ -343,11 +416,13 @@ function renderPublications(pubYaml, bibEntries, version) {
     return `<h2>
         <a class="section-link" onclick="document.getElementById('pub-publications').scrollIntoView({behavior:'smooth'}); return false;" style="cursor:pointer;text-decoration:none;color:inherit;"><u>Publications</u></a> • 
         <a class="section-link" onclick="document.getElementById('pub-talks').scrollIntoView({behavior:'smooth'}); return false;" style="cursor:pointer;text-decoration:none;color:inherit;">Talks</a> • 
+        <a class="section-link" onclick="document.getElementById('pub-tutorials').scrollIntoView({behavior:'smooth'}); return false;" style="cursor:pointer;text-decoration:none;color:inherit;">Tutorials</a> • 
         <a class="section-link" onclick="document.getElementById('pub-posters').scrollIntoView({behavior:'smooth'}); return false;" style="cursor:pointer;text-decoration:none;color:inherit;">Posters</a> • 
         <a class="section-link" onclick="document.getElementById('pub-presentations').scrollIntoView({behavior:'smooth'}); return false;" style="cursor:pointer;text-decoration:none;color:inherit;">Presentations</a>
     </h2>
     <h3 id="pub-publications" style="scroll-margin-top:300px;">Publications</h3>${html}
     <h3 id="pub-talks" style="scroll-margin-top:300px;">Invited Talks</h3>${talks}
+    <h3 id="pub-tutorials" style="scroll-margin-top:300px;">Tutorials</h3>${tutorials}
     <h3 id="pub-posters" style="scroll-margin-top:300px;">Posters</h3>${posters}
     <h3 id="pub-presentations" style="scroll-margin-top:300px;">Presentations</h3>${presentations}`;
 }

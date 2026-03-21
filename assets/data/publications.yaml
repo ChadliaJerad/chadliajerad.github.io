@@ -107,6 +107,19 @@ talks:
   title: 'Model checking architectural descriptions: software and hardware'
   event: ZIH Colloquium, TU-Dresden, Germany
 
+tutorials:
+
+- versions:
+  - long
+  - short
+  title: 'Lingua Franca: An Open-Source Coordination Language for Deterministic Integration of Cyber-Physical Systems'
+  period: May 2026
+  authors: 
+  - H. Kim
+  - C. Jerad
+  - E. A. Lee
+  event: (To be presented) at CPS-IoT Week 2026, Saint Malo, France
+  url: https://www.lf-lang.org/events/cpsweek-2026-tutorial/
 
 posters:
 
