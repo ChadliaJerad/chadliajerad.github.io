@@ -16,10 +16,10 @@ publications:
   - cite_key: lin2023towards
     versions: [short, long]
   - cite_key: jellum2023interpret
-    versions: [long]
+    versions: [long, short]
   - cite_key: bouraoui2022mapn
     versions: [long]
-  - cite_key: messaad2021ai
+  - cite_key: aboumessaad2021ai
     versions: [long]
   - cite_key: bouraoui2021towards
     versions: [long]
@@ -32,11 +32,11 @@ publications:
   - cite_key: jerad2018deterministic
     versions: [short, long]
   - cite_key: bouraoui2017hardware
-    versions: [long]
+    versions: [long, short]
   - cite_key: jerad2017javascript
-    versions: [long]
+    versions: [long, short]
   - cite_key: masmoudi2016stereovision
-    versions: [long]
+    versions: [long, short]
   - cite_key: louati2014time
     versions: [long]
   - cite_key: louati2014temporal
@@ -48,11 +48,11 @@ publications:
   - cite_key: louati2012formalization
     versions: [long]
   - cite_key: jerad2008maude
-    versions: [long]
+    versions: [long, short]
   - cite_key: jerad2007hierarchical
-    versions: [long]
+    versions: [long, short]
   - cite_key: jerad2007design
-    versions: [long]
+    versions: [long, short]
   - cite_key: jerad2006hierarchical
     versions: [long]
   - cite_key: jerad2006ltl
@@ -60,7 +60,7 @@ publications:
   - cite_key: grissatouzi2005negation
     versions: [long]
   - cite_key: jerad2005rewriting
-    versions: [long]
+    versions: [long, short]
   - cite_key: jerad2005newapproach
     versions: [long]
   - cite_key: jerad2005strpro
@@ -68,82 +68,98 @@ publications:
   - cite_key: jerad2004generateur
     versions: [long]
 
-talks_presentations:
+talks:
+
 - versions:
   - long
+  - short
   period: Jul 2021
-  type: Talk (×2)
   titles:
   - Cyber Physical Systems & Internet of Things
   - Example applications and Innovation Frameworks
   event: 'Chinese & Tunisian Innovation Challenge, 2nd edition of One Belt One Road: Global Digital Online Study 2021'
+
 - versions:
   - long
+  - short
   period: Jan 2021
-  type: Talk
-  title: Cyber Physical Systems & Internet of Things
+  title: Cyber Physical Systems and Internet of Things
   event: Chinese & Tunisian Innovation Challenge, 1st edition of One Belt One Road 2021
+
 - versions:
   - long
+  - short
   period: Jun 2018
-  type: Talk
   title: 'A browser for Things: using the Accessors software architecture'
   event: ivESK-Kolleg, HS-Offenburg, Germany
+
 - versions:
   - long
+  - short
   period: Apr 2018
-  type: Talk
   title: 'A browser for Things: using the Accessors software architecture'
   event: Chair for Compiler Construction, cfaed, TU Dresden, Germany
+
 - versions:
   - long
-  period: Oct 2017
-  type: Poster
-  title: Augmented Reality with Accessors
-  authors:
-  - Matt Weber
-  - Edward A. Lee
-  - Christopher Brooks
-  - Chadlia Jerad
-  - Hokeun Kim
-  - Marten Lohstroh
-  - Victor Nouvellet
-  - Beth Osyk
-  event: TerraSwarm 2017 Annual Meeting, Berkeley, CA
-  url: https://www.terraswarm.org/pubs/1013.html
-- versions:
-  - long
-  period: May 2017
-  type: Presentation
-  title: Running Accessors On Mobile Devices Using Cordova
-  authors:
-  - Chadlia Jerad
-  - Hokeun Kim
-  - Marten Lohstroh
-  - Victor Nouvellet
-  - Matt Weber
-  event: The Ptolemy Group Lunch, Berkeley, CA
-- versions:
-  - long
-  period: Apr 2017
-  type: Presentation
-  title: Mutable Accessors & Deterministic Temporal Semantics
-  event: The Ptolemy Group Lunch, Berkeley, CA
-- versions:
-  - long
-  period: Nov 2016
-  type: Presentation
-  title: Tutorial on Maude
-  event: The Ptolemy Group Lunch, Berkeley, CA
-- versions:
-  - long
-  period: Sep 2016
-  type: Presentation
-  title: Bringing Swarmlets into River Styx
-  event: The Ptolemy Group Lunch, Berkeley, CA
-- versions:
-  - long
+  - short
   period: Apr 2015
-  type: Invited Talk
   title: 'Model checking architectural descriptions: software and hardware'
   event: ZIH Colloquium, TU-Dresden, Germany
+
+
+posters:
+
+- versions:
+  - long
+  - short
+  period: Oct 2017
+  title: Augmented Reality with Accessors
+  authors:
+  - M. Weber
+  - E. A. Lee
+  - C. Brooks
+  - C. Jerad
+  - H. Kim
+  - M. Lohstroh
+  - V. Nouvellet
+  - B. Osyk
+  event: TerraSwarm 2017 Annual Meeting, Berkeley, CA
+  url: https://www.terraswarm.org/pubs/1013.html
+
+
+presentations:
+
+- versions:
+  - long
+  - short
+  period: May 2017
+  title: Running Accessors On Mobile Devices Using Cordova
+  authors:
+  - C. Jerad
+  - H. Kim
+  - M. Lohstroh
+  - V. Nouvellet
+  - M. Weber
+  event: The Ptolemy Group Lunch, Berkeley, CA
+
+- versions:
+  - long
+  - short
+  period: Apr 2017
+  title: Mutable Accessors & Deterministic Temporal Semantics
+  event: The Ptolemy Group Lunch, Berkeley, CA
+
+- versions:
+  - long
+  - short
+  period: Nov 2016
+  title: Tutorial on Maude
+  event: The Ptolemy Group Lunch, Berkeley, CA
+
+- versions:
+  - long
+  - short
+  period: Sep 2016
+  title: Bringing Swarmlets into River Styx
+  event: The Ptolemy Group Lunch, Berkeley, CA

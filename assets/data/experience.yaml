@@ -1,4 +1,5 @@
 positions:
+
 - versions:
   - short
   - long
@@ -7,6 +8,7 @@ positions:
   institution: National School of Computer Science (ENSI), University of Manouba
   country: Tunisia
   department: SRSI
+
 - versions:
   - short
   - long
@@ -18,6 +20,7 @@ positions:
   - Received 3D Rationality Fellowship (May–Aug 2023)
   - 'Faculty: Prof. Edward A. Lee'
   - Joined the Lingua Franca project
+
 - versions:
   - short
   - long
@@ -26,9 +29,9 @@ positions:
   institution: EECS Department, UC Berkeley
   country: USA
   details:
-  - Sabbatical leave
   - 'iCyPhy Research Center, Faculty: Prof. Edward A. Lee'
   - Joined the Accessors project
+
 - versions:
   - long
   period: Nov 2021 – Aug 2022
@@ -38,6 +41,7 @@ positions:
   details:
   - Design and Development of the Voice Push platform
   - Design and Development of a holographic agent
+
 - versions:
   - long
   period: Sep 2014 – Aug 2020
@@ -49,28 +53,14 @@ positions:
   - Updated 5th level curriculum
   - Promoted specialization among students and companies
   - Established international partnerships, invited foreign professors, organized workshops
+
 - versions:
   - long
   period: Jan 2018 – Mar 2018
   role: Internships Director
   institution: ENSI, University of Manouba
   country: Tunisia
-- versions:
-  - long
-  period: Jan 2018 and Jan 2019
-  role: Invited Lecturer
-  institution: ENIT, University of Tunis El Manar
-  country: Tunisia
-  details:
-  - 'Class: Sensors, Networks and Internet of Things, 2nd level MSc'
-- versions:
-  - long
-  period: Fall 2017 and Fall 2019
-  role: Invited Lecturer
-  institution: Tunisia Polytechnic School (EPT), University of Carthage
-  country: Tunisia
-  details:
-  - 'Class: Embedded Systems, 5th level'
+
 - versions:
   - long
   period: Sep 2007 – Aug 2009
@@ -79,6 +69,7 @@ positions:
   country: Tunisia
   details:
   - Computer Architecture (2nd level), Digital Circuits (1st level)
+
 - versions:
   - long
   period: Sep 2003 – Aug 2007
@@ -87,21 +78,26 @@ positions:
   country: Tunisia
   details:
   - Computer Architecture (3rd level), Algorithms and C/C++ Programming (3rd level)
+
 - versions:
   - long
   period: May – Sep 2003
   role: Engineer
   institution: Department of Electronic Security, Mediterranean Services
   country: Tunisia
+
+
 stays_abroad:
-- versions:
-  - short
-  - long
-  period: Oct 2022 – Jun 2023
-  type: Visiting Scholar
-  institution: UC Berkeley, iCyPhy Research Center
-  country: USA
-  project: Lingua Franca
+
+# - versions:
+#   - short
+#   - long
+#   period: Oct 2022 – Jun 2023
+#   type: Visiting Scholar
+#   institution: UC Berkeley, iCyPhy Research Center
+#   country: USA
+#   project: Lingua Franca
+
 - versions:
   - long
   period: Nov 2021
@@ -109,6 +105,7 @@ stays_abroad:
   institution: cfaed, TU Dresden
   country: Germany
   project: CyPhySym
+
 - versions:
   - long
   period: Aug 2021
@@ -116,6 +113,7 @@ stays_abroad:
   institution: cfaed, TU Dresden
   country: Germany
   project: CyPhySym
+
 - versions:
   - long
   period: Sep 2021
@@ -123,6 +121,7 @@ stays_abroad:
   institution: ivESK, HS Offenburg
   country: Germany
   project: IoTIC
+
 - versions:
   - long
   period: Aug 2020
@@ -130,6 +129,7 @@ stays_abroad:
   institution: cfaed, TU Dresden
   country: Germany
   project: EngCPS&IoT
+
 - versions:
   - long
   period: Jul 2019
@@ -137,6 +137,7 @@ stays_abroad:
   institution: cfaed, TU Dresden
   country: Germany
   project: Embedded parallel programming
+
 - versions:
   - long
   period: Jul 2019
@@ -144,6 +145,7 @@ stays_abroad:
   institution: ivESK, HS Offenburg
   country: Germany
   project: ContIoT
+
 - versions:
   - long
   period: Mai 2019
@@ -151,6 +153,7 @@ stays_abroad:
   institution: cfaed, TU Dresden
   country: Germany
   project: Embedded parallel programming
+
 - versions:
   - long
   period: Mai 2018
@@ -158,20 +161,23 @@ stays_abroad:
   institution: ivESK, HS Offenburg
   country: Germany
   project: RealIoT
+
 - versions:
   - long
   period: Apr 2018
   type: Visiting Professor
   institution: cfaed, TU Dresden
   country: Germany
-- versions:
-  - short
-  - long
-  period: Sep 2016 – Aug 2017
-  type: Fulbright Visiting Scholar
-  institution: UC Berkeley, iCyPhy Research Center
-  country: USA
-  project: Accessors
+
+# - versions:
+#   - short
+#   - long
+#   period: Sep 2016 – Aug 2017
+#   type: Fulbright Visiting Scholar
+#   institution: UC Berkeley, iCyPhy Research Center
+#   country: USA
+#   project: Accessors
+
 - versions:
   - long
   period: Mar 2016
@@ -179,12 +185,14 @@ stays_abroad:
   institution: ivESK HS Offenburg and ZIH & cfaed, TU Dresden
   country: Germany
   project: Get-together towards a sustainable collaboration in IoT
+
 - versions:
   - long
   period: Jun–Jul 2013
   type: Grant (Association MedLink)
   institution: Conservatoire National des Arts et Métiers (CNAM)
   country: France
+
 - versions:
   - long
   period: Apr–Jun 2006
@@ -192,6 +200,7 @@ stays_abroad:
   institution: CNAM
   country: France
   funder: Ministry of Higher Education, Tunisia
+
 - versions:
   - long
   period: May–Jun 2005
@@ -199,6 +208,10 @@ stays_abroad:
   institution: CNAM
   country: France
   funder: Ministry of Higher Education, Tunisia
+  details:
+  - May–Jun 2005
+  - Apr–Jun 2006
+
 - versions:
   - long
   period: Oct 2004
@@ -206,6 +219,7 @@ stays_abroad:
   institution: CNAM
   country: France
   funder: Ministry of Higher Education, Tunisia
+
 - versions:
   - long
   period: Jul–Aug 2001

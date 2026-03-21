@@ -97,12 +97,13 @@ function renderExperience(data, version) {
         return eventBlock(s.period, `${mdLinks(s.type)} — ${mdLinks(s.institution)}, ${mdLinks(s.country)}`, detail);
     }).join('');
 
-    return `
-    <h2>Experience</h2>
-    <h3>Academic &amp; Professional Positions</h3>
-    ${positions}
-    <h3>Research Visits &amp; Stays Abroad</h3>
-    ${stays}`;
+    return `<h2>
+        <a class="section-link" onclick="document.getElementById('pub-positions').scrollIntoView({behavior:'smooth'}); return false;" style="cursor:pointer;text-decoration:none;color:inherit;"><u>Positions</u></a> • 
+        <a class="section-link" onclick="document.getElementById('pub-stays').scrollIntoView({behavior:'smooth'}); return false;" style="cursor:pointer;text-decoration:none;color:inherit;">Research Stays</a>
+    </h2>
+    <h3 id="pub-positions" style="scroll-margin-top:300px;">Positions</h3>${positions}
+    <h3 id="pub-stays" style="scroll-margin-top:300px;">Research Stays Abroad</h3>${stays}`;
+
 }
 
 // ─── Teaching ─────────────────────────────────────────────────────────────────
@@ -134,7 +135,7 @@ function renderTeaching(data) {
     <h3>Current Courses — ENSI, University of Manouba</h3>
     <p style="margin-bottom:1rem;color:#555;font-size:0.95rem;">Classes marked [English] are taught in English, based on EECS 149/249A at UC Berkeley.</p>
     ${current.map(courseCard).join('')}
-    <h3>Guest &amp; Invited Lectures</h3>
+    <h3>Guest Lecturer</h3>
     ${guestBlocks}
     <h3>Previously Taught</h3>
     <ul style="margin-left:2rem;margin-top:0.5rem;">${pastList}</ul>`;
@@ -213,50 +214,12 @@ function renderServices(data, version) {
     <table style="margin-left:1rem;margin-top:0.5rem;border-collapse:collapse;">
         ${pcRows}
     </table>
-    <h3>Chairing &amp; Opponent</h3>
+    <h3> Dissertation Committee</h3>
     ${chairing}`;
 }
 
 // ─── Contact ──────────────────────────────────────────────────────────────────
-
-function renderContact(data) {
-    const p = data.profiles || {};
-    const profileLinks = [
-        p.google_scholar ? `<li><a href="${mdLinks(p.google_scholar)}" target="_blank" style="color:#1e3c72;">Google Scholar</a></li>` : '',
-        p.linkedin       ? `<li><a href="${mdLinks(p.linkedin)}"       target="_blank" style="color:#1e3c72;">LinkedIn</a></li>` : '',
-        p.github         ? `<li><a href="${mdLinks(p.github)}"         target="_blank" style="color:#1e3c72;">GitHub</a></li>` : '',
-        p.homepage       ? `<li><a href="${mdLinks(p.homepage)}"       target="_blank" style="color:#1e3c72;">Homepage</a></li>` : '',
-    ].join('');
-
-    const e = data.emails || {};
-    return `
-    <h2>Contact</h2>
-    <div class="contact-info">
-        ${e.professional ? `<div class="contact-item"><strong>Professional Email</strong><a href="mailto:${mdLinks(e.professional)}">${mdLinks(e.professional)}</a></div>` : ''}
-        ${e.personal     ? `<div class="contact-item"><strong>Personal Email</strong><a href="mailto:${mdLinks(e.personal)}">${mdLinks(e.personal)}</a></div>` : ''}
-        ${data.address   ? `<div class="contact-item"><strong>Address</strong>${mdLinks(data.address)}</div>` : ''}
-        ${data.phone     ? `<div class="contact-item"><strong>Phone</strong>${mdLinks(data.phone)}</div>` : ''}
-    </div>
-    <h3 style="margin-top:2rem;">Find Me Online</h3>
-    <ul style="margin-left:2rem;margin-top:1rem;line-height:2;">${profileLinks}</ul>`;
-}
-
-// ─── Publications ─────────────────────────────────────────────────────────────
-// Publications are rendered directly from the existing publications.html
-// (the .bib integration is a future step once a .bib file is provided)
-
-// ─── Export ───────────────────────────────────────────────────────────────────
-
-window.Renderers = {
-    about:        renderAbout,
-    experience:   renderExperience,
-    teaching:     renderTeaching,
-    initiatives:  renderInitiatives,
-    supervision:  renderSupervision,
-    distinctions:  renderDistinctions,
-    services:     renderServices,
-    contact:      renderContact,
-};
+// Contact infor is only for CV generation
 
 // ─── Publications (BibTeX-driven) ────────────────────────────────────────────
 
@@ -267,7 +230,7 @@ function renderPublications(pubYaml, bibEntries, version) {
     });
 
     if (!list.length) {
-        return '<h2>Publications, Talks & Presentations</h2><p>No entries for this version.</p>';
+        return '<h2>Publications • Talks • Posters • Presentations</h2><p>No entries for this version.</p>';
     }
 
     // Group by year using bib data
@@ -292,10 +255,10 @@ function renderPublications(pubYaml, bibEntries, version) {
             const authors = BibParser.formatAuthors(e.author || '');
             const venue   = BibParser.buildVenue(e);
 
-            // Bold "Jerad" in author list
+            // Underline "Jerad" in author list
             const authorsHighlighted = authors.replace(
-                /\bJerad\b/g,
-                '<strong>Jerad</strong>'
+                /\bC. Jerad\b/g,
+                '<u>C. Jerad</u>'
             );
 
             return `
@@ -306,25 +269,99 @@ function renderPublications(pubYaml, bibEntries, version) {
             </div>`;
         }).join('');
 
-        return `<h3 style="color:#1e3c72;margin-top:1.5rem;margin-bottom:0.5rem;">${year}</h3>${pubs}`;
+        // return `<h3 style="color:#1e3c72;margin-top:1.5rem;margin-bottom:0.5rem;">${year}</h3>${pubs}`;
+        return `${pubs}`;
     }).join('');
 
-    const talks = (pubYaml.talks_presentations || []).map(t => {
+    const talks = (pubYaml.talks || []).map(t => {
         if (!visible(t, version)) return '';
-        const title = t.title || (t.titles && t.titles.join(' &amp; ')) || '';
+        let titleHtml = '';
+        if (t.title) {
+            titleHtml = mdLinks(t.title);
+        } else if (t.titles) {
+            titleHtml = t.titles.map(title => `<div>— ${mdLinks(title)}</div>`).join('');
+        }
         let details = '';
-        if (t.authors) details += `<p>${t.authors.map(esc).join(', ')}</p>`;
-        if (t.event)   details += `<p>${mdLinks(t.event)}</p>`;
-        if (t.url)     details += `<p><a href="${mdLinks(t.url)}" target="_blank">Link</a></p>`;
-        return eventBlock(t.period, `${mdLinks(t.type)} — ${mdLinks(title)}`, details);
+        if (t.event) details += `${mdLinks(t.event)} — ${mdLinks(t.period)}`;
+        if (t.url) details += `, <a href="${mdLinks(t.url)}" target="_blank">Link</a>`;
+        
+        return `
+            <div class="publication">
+                <div class="publication-title">${titleHtml}</div>
+                <div class="publication-venue">${details}</div>
+            </div>`;
     }).join('');
 
+    const posters = (pubYaml.posters || []).map(t => {
+        if (!visible(t, version)) return '';
+        let titleHtml = '';
+        if (t.title) {
+            titleHtml = mdLinks(t.title);
+        } else if (t.titles) {
+            titleHtml = t.titles.map(title => `<div>— ${mdLinks(title)}</div>`).join('');
+        }
+        let details = '';
+        if (t.authors) details += `<div>${(t.authors.map(esc).join(', ')).replace(
+                /\bC. Jerad\b/g,
+                '<u>C. Jerad</u>'
+            )}</div>`;
+        if (t.event)   details += `${mdLinks(t.event)} —  ${mdLinks(t.period)}`;
+        if (t.url)     details += `, <a href="${mdLinks(t.url)}" target="_blank">Link</a>`;
+        
+        return `
+            <div class="publication">
+                <div class="publication-title">${titleHtml}</div>
+                <div class="publication-authors">${mdLinks(t.type)}</div>
+                <div class="publication-venue">${details}</div>
+            </div>`;
+    }).join('');
 
+    const presentations = (pubYaml.presentations || []).map(t => {
+        if (!visible(t, version)) return '';
+        let titleHtml = '';
+        if (t.title) {
+            titleHtml = mdLinks(t.title);
+        } else if (t.titles) {
+            titleHtml = t.titles.map(title => `<div>— ${mdLinks(title)}</div>`).join('');
+        }
+        let details = '';
+        if (t.authors) details += `<div>${t.authors.map(esc).join(', ').replace(
+                /\bC. Jerad\b/g,
+                '<u>C. Jerad</u>'
+            )}</div>`;
+        if (t.event)   details += `${mdLinks(t.event)} — ${mdLinks(t.period)}`;
+        if (t.url)     details += `, ` + `<a href="${mdLinks(t.url)}" target="_blank">Link</a>`;
+        
+        return `
+            <div class="publication">
+                <div class="publication-title">${titleHtml}</div>
+                <div class="publication-authors">${mdLinks(t.type)}</div>
+                <div class="publication-venue">${details}</div>
+            </div>`;
+    }).join('');
 
-    return `<h2>Publications, Talks & Presentations</h2>${html}
-    <h3>Talks &amp; Presentations</h3>
-    ${talks}`;
+    return `<h2>
+        <a class="section-link" onclick="document.getElementById('pub-publications').scrollIntoView({behavior:'smooth'}); return false;" style="cursor:pointer;text-decoration:none;color:inherit;"><u>Publications</u></a> • 
+        <a class="section-link" onclick="document.getElementById('pub-talks').scrollIntoView({behavior:'smooth'}); return false;" style="cursor:pointer;text-decoration:none;color:inherit;">Talks</a> • 
+        <a class="section-link" onclick="document.getElementById('pub-posters').scrollIntoView({behavior:'smooth'}); return false;" style="cursor:pointer;text-decoration:none;color:inherit;">Posters</a> • 
+        <a class="section-link" onclick="document.getElementById('pub-presentations').scrollIntoView({behavior:'smooth'}); return false;" style="cursor:pointer;text-decoration:none;color:inherit;">Presentations</a>
+    </h2>
+    <h3 id="pub-publications" style="scroll-margin-top:300px;">Publications</h3>${html}
+    <h3 id="pub-talks" style="scroll-margin-top:300px;">Invited Talks</h3>${talks}
+    <h3 id="pub-posters" style="scroll-margin-top:300px;">Posters</h3>${posters}
+    <h3 id="pub-presentations" style="scroll-margin-top:300px;">Presentations</h3>${presentations}`;
 }
 
 // Add to exports
-window.Renderers.publications_bib = renderPublications;
+// ─── Export ───────────────────────────────────────────────────────────────────
+
+window.Renderers = {
+    about:        renderAbout,
+    experience:   renderExperience,
+    teaching:     renderTeaching,
+    initiatives:  renderInitiatives,
+    supervision:  renderSupervision,
+    distinctions: renderDistinctions,
+    services:     renderServices,
+    publications_bib:   renderPublications
+};
