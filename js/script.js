@@ -1,7 +1,7 @@
 // Static site — tab switching + version toggle only (no YAML/BibTeX loading)
 
 const VERSION_TABS = new Set(['publications', 'initiatives', 'advising', 'commitment', 'experience']);
-let currentVersion = 'long';
+let currentVersion = 'short';
 
 // ── Tab switching ─────────────────────────────────────────────────────────────
 function showTab(name, push) {
@@ -50,6 +50,7 @@ document.addEventListener('DOMContentLoaded', () => {
         btn.addEventListener('click', () => setVersion(btn.dataset.v));
     });
 
+    setVersion(currentVersion);
     const initial = (location.hash || '#about').slice(1);
     showTab(initial, false);
 
