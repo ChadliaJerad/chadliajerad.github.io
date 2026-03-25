@@ -1,7 +1,7 @@
 // Static site — tab switching + version toggle only (no YAML/BibTeX loading)
 
 const VERSION_TABS = new Set(['publications', 'initiatives', 'advising', 'commitment', 'experience']);
-let currentVersion = 'short';
+let currentVersion = 'short_site';
 
 // ── Tab switching ─────────────────────────────────────────────────────────────
 function showTab(name, push) {

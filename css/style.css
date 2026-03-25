@@ -270,6 +270,32 @@ footer {
             margin: 4px 0;
         }
 
+        .event_nodate {
+            margin-bottom: 30px;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-left: 4px solid #3498db;
+        }
+        /* .date {
+            font-weight: bold;
+            color: #3498db;
+            font-size: 0.82rem;
+            margin-bottom: 10px;
+        } */
+        .role {
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 8px;
+            font-size: 0.88rem;
+        }
+        .details {
+            color: #555;
+            margin-left: 20px;
+        }
+        .details p {
+            margin: 4px 0;
+        }
+
 /* Responsive Design */
 @media (max-width: 768px) {
     .header-content {
