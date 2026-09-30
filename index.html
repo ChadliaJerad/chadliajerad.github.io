@@ -44,7 +44,13 @@
 
     <nav>
         <div class="nav-container">
-            <ul class="tabs">
+            <button class="menu-toggle" aria-expanded="false" aria-controls="tabs">
+                <span class="menu-current">About</span>
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M3 6h18v2H3V6zm0 5h18v2H3v-2zm0 5h18v2H3v-2z"/>
+                </svg>
+            </button>
+            <ul class="tabs" id="tabs">
                 <li class="tab active" data-tab="about">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
                         <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>

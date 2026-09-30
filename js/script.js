@@ -15,12 +15,11 @@ function showTab(name, push) {
     document.querySelectorAll('.tab').forEach(t =>
         t.classList.toggle('active', t.dataset.tab === name));
 
-    // On phones the menu is a swipeable row: bring the active tab into view
+    // Phone menu: show the current tab's name and collapse the list
     const active = document.querySelector('.tab.active');
-    if (active) {
-        const row = active.parentElement;
-        row.scrollLeft = active.offsetLeft - (row.clientWidth - active.offsetWidth) / 2;
-    }
+    const current = document.querySelector('.menu-current');
+    if (active && current) current.textContent = active.textContent.trim() || 'About';
+    setMenuOpen(false);
 
     // Show/hide version toggle bar
     const bar = document.getElementById('version-toggle-bar');
@@ -28,6 +27,15 @@ function showTab(name, push) {
 
     if (push) history.pushState({ tab: name }, '', '#' + name);
     window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+// ── Phone menu (collapsed by default) ─────────────────────────────────────────
+function setMenuOpen(open) {
+    const nav = document.querySelector('nav');
+    const btn = document.querySelector('.menu-toggle');
+    if (!nav || !btn) return;
+    nav.classList.toggle('open', open);
+    btn.setAttribute('aria-expanded', open ? 'true' : 'false');
 }
 
 // ── Version toggle ────────────────────────────────────────────────────────────
@@ -52,6 +60,10 @@ document.addEventListener('DOMContentLoaded', () => {
             if (next !== undefined) { tabs[next].click(); tabs[next].focus(); }
         });
     });
+
+    const menuBtn = document.querySelector('.menu-toggle');
+    if (menuBtn) menuBtn.addEventListener('click', () =>
+        setMenuOpen(!document.querySelector('nav').classList.contains('open')));
 
     document.querySelectorAll('.version-btn').forEach(btn => {
         btn.addEventListener('click', () => setVersion(btn.dataset.v));
