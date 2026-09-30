@@ -16,7 +16,7 @@ body {
 /* Header Styles */
 header {
     position: relative;
-    background-image: url('../../images/banner.png');
+    background-image: url('../images/banner.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -298,27 +298,76 @@ footer {
 
 /* Responsive Design */
 @media (max-width: 768px) {
+    /* Banner scrolls away instead of staying pinned */
+    header {
+        position: relative;
+        background-image: url('../images/banner-small.jpg');
+        min-height: 0;
+        padding: 1.2rem 0;
+    }
+
     .header-content {
         flex-direction: column;
         text-align: center;
+        padding: 0 1rem;
+    }
+
+    .header-text h1 {
+        font-size: 1.3rem;
+    }
+
+    .header-text p {
+        font-size: 0.78rem;
+    }
+
+    /* Menu: one compact row, swipeable, pinned to the top */
+    nav {
+        top: 0;
+    }
+
+    .nav-container {
+        padding: 0;
     }
 
     .tabs {
-        flex-direction: column;
+        overflow-x: auto;
+        white-space: nowrap;
+        scrollbar-width: none;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .tabs::-webkit-scrollbar {
+        display: none;
     }
 
     .tab {
-        border-bottom: 1px solid #e0e0e0;
-        border-left: 3px solid transparent;
+        flex-shrink: 0;
+        padding: 0.65rem 0.9rem;
     }
 
-    .tab.active {
-        border-bottom-color: #e0e0e0;
-        border-left-color: #1e3c72;
+    .tab-icon {
+        flex-shrink: 0;
+        padding: 0 0.5rem;
+    }
+
+    main {
+        margin: 1rem auto;
+        padding: 0 0.6rem;
     }
 
     .tab-content {
         padding: 1.3rem;
+    }
+
+    /* About: photo above the text instead of beside it */
+    .about-row {
+        flex-direction: column-reverse;
+        align-items: center !important;
+        gap: 1rem !important;
+    }
+
+    .about-row > div:last-child {
+        max-width: 180px;
     }
 
     .contact-info {

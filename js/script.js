@@ -1,7 +1,7 @@
 // Static site — tab switching + version toggle only (no YAML/BibTeX loading)
 
 const VERSION_TABS = new Set(['publications', 'initiatives', 'advising', 'commitment', 'experience']);
-let currentVersion = 'short_site';
+let currentVersion = 'long_site';
 
 // ── Tab switching ─────────────────────────────────────────────────────────────
 function showTab(name, push) {
@@ -14,6 +14,13 @@ function showTab(name, push) {
     // Update nav highlight
     document.querySelectorAll('.tab').forEach(t =>
         t.classList.toggle('active', t.dataset.tab === name));
+
+    // On phones the menu is a swipeable row: bring the active tab into view
+    const active = document.querySelector('.tab.active');
+    if (active) {
+        const row = active.parentElement;
+        row.scrollLeft = active.offsetLeft - (row.clientWidth - active.offsetWidth) / 2;
+    }
 
     // Show/hide version toggle bar
     const bar = document.getElementById('version-toggle-bar');
